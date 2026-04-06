@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Acme Corp",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+    "link": "https://example.com/acme",
+    "children": [
+      {
+        "name": "Alice - CEO",
+        "imageUrl": "https://i.pravatar.cc/150?u=alice",
+        "link": "https://example.com/alice",
+        "children": [
+          {
+            "name": "Bob - CTO",
+            "imageUrl": "https://i.pravatar.cc/150?u=bob",
+            "children": [
+              {
+                "name": "Eve - Dev",
+                "imageUrl": "https://i.pravatar.cc/150?u=eve"
+              },
+              {
+                "name": "Mallory - Dev",
+                "imageUrl": "https://i.pravatar.cc/150?u=mallory"
+              }
+            ]
+          },
+          {
+            "name": "Charlie - CFO",
+            "imageUrl": "https://i.pravatar.cc/150?u=charlie",
+            "children": [
+              {
+                "name": "Trent - Accountant",
+                "imageUrl": "https://i.pravatar.cc/150?u=trent"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

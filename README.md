@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Family Tree Builder 🌳
 
-## Getting Started
+Welcome to the **Family Tree Builder**! A beautiful, open-source, interactive radial tree visualization tool built with Next.js and D3.js. 
 
-First, run the development server:
+Have you ever wanted to visualize your family tree, your company's organizational chart, or your community network in a stunning, interactive, and modern way? This project allows you to do exactly that, simply by editing a single JSON file. No complex coding required!
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- ✨ **Beautiful Radial Design**: A glowing, dark-themed, and interactive circular tree structure.
+- 🎛️ **Zoom & Pan**: Fully interactive map. You can drag and zoom in/out smoothly.
+- 🖼️ **Avatars & Links**: Each node supports an image URL and a clickable external link.
+- 📥 **High-Resolution PNG Export**: Export your beautiful tree directly as a high-quality PNG with a single click.
+- ⚡ **Next.js Powered**: Fast, responsive, and easy to deploy.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Quick Start
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/family-tree-builder.git
+   cd family-tree-builder
+   ```
 
-## Learn More
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Edit your Data**
+   Open the `data/tree-data.json` file. This is the heart of your tree! Edit it according to the simple JSON standard:
+   ```json
+   [
+     {
+       "name": "Acme Corp",
+       "imageUrl": "https://example.com/your-logo.png",
+       "link": "https://yourwebsite.com",
+       "children": [
+         {
+            "name": "Jane Doe",
+            "imageUrl": "https://example.com/jane.jpg"
+         }
+       ]
+     }
+   ]
+   ```
+   *Note: If you plan to export the PNG with images, ensure the images are hosted on a server that allows CORS (Cross-Origin Resource Sharing) or use base64 encoded images, otherwise the browser's security restrictions might prevent the PNG from downloading.*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploying to Production
 
-## Deploy on Vercel
+The easiest way to deploy your tree is using [Vercel](https://vercel.com/new). Once you've added your custom JSON data and pushed to GitHub, Vercel will automatically host it for free!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License - feel free to use it for your personal or commercial projects!

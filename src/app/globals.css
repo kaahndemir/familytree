@@ -1,26 +1,78 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* --- 1. Global Resets & Body Styles --- */
+/*
+  A modern CSS reset. This ensures consistent styling across different browsers
+  by removing default margins, paddings, and setting a natural box-sizing model.
+*/
+html {
+  box-sizing: border-box;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: #222; /* A dark background for the whole page */
+  color: #f0f0f0;         /* A light text color for good contrast */
+
+  min-height: 100vh; /* Make the body fill the entire viewport height */
+  width: 100vw;  /* Make the body fill the entire viewport width */
+}
+
+/* --- 2. Main Application Layout --- */
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Make the app fill the viewport */
+  width: 100vw;
+  overflow: hidden; /* Hide scrollbars, as D3 will handle panning */
+  text-align: center;
+  position: relative;
+}
+
+.image-container {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Floating Button for Export --- */
+.download-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 24px;
+  background-color: rgba(20, 20, 25, 0.8);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.download-button:hover {
+  background-color: rgba(40, 40, 50, 0.9);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.download-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
 }
