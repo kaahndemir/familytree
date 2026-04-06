@@ -2,6 +2,8 @@
 
 Welcome to the **Family Tree Builder**! A beautiful, open-source, interactive radial tree visualization tool built with Next.js and D3.js. 
 
+![Family Tree Preview](./public/preview.png)
+
 Have you ever wanted to visualize your family tree, your company's organizational chart, or your community network in a stunning, interactive, and modern way? This project allows you to do exactly that, simply by editing a single JSON file. No complex coding required!
 
 ## Features
