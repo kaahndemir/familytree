@@ -34,6 +34,29 @@ const RadialTree = forwardRef<RadialTreeHandle, RadialTreeProps>(({ data }, ref)
             svgClone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
         }
 
+        // --- NEW LOGIC: Pre-fetch images and convert to Base64 to bypass Canvas/SVG loading limitations ---
+        const images = Array.from(svgClone.querySelectorAll('image'));
+        for (const img of images) {
+          const url = img.getAttribute('href') || img.getAttribute('xlink:href');
+          if (url && !url.startsWith('data:')) {
+            try {
+              const response = await fetch(url, { mode: 'cors' });
+              const blob = await response.blob();
+              const base64 = await new Promise<string>((resolve) => {
+                const reader = new FileReader();
+                reader.onloadend = () => resolve(reader.result as string);
+                reader.readAsDataURL(blob);
+              });
+              img.setAttribute('href', base64);
+              if (img.hasAttribute('xlink:href')) {
+                  img.setAttribute('xlink:href', base64);
+              }
+            } catch(e) {
+              console.warn("Could not fetch image to embed in PNG", url, e);
+            }
+          }
+        }
+
         const width = Number(svgElement.getAttribute('width')) || dimensions.width || 1920;
         const height = Number(svgElement.getAttribute('height')) || dimensions.height || 1080;
         
